@@ -99,21 +99,13 @@ public class Item_Movement_Box_Body : MonoBehaviour
         else
         {
             // turn collision back on in 0.1 second
-            coroutine = Land(false, 0.1f);
+            coroutine = Land(false, 0f);
             StartCoroutine(coroutine);
         }
 
         // prevent the object from being clickable
         isFlying = true;
 
-    }
-
-    [ContextMenu("Return")]
-    private void Return() //for testing purposes only
-    {
-        isFlying = false;
-        transform.position = new Vector3(initialX, initialY, 0);
-        rigidbody2DComponent.velocity = Vector3.zero;
     }
 
     private void Grow()
