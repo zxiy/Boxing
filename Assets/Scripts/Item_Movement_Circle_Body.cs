@@ -16,8 +16,6 @@ public class Item_Movement_Circle_Body : MonoBehaviour
 
     [SerializeField] private GameObject brokenEffect;
     
-    public float initialX; //for testing purposes only
-    public float initialY; //for testing purposes only
     public float speed;
     private IEnumerator coroutine;
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,12 @@ public class Item_Movement_Box_Body : MonoBehaviour
     Vector3 lastPosition0;
     Vector3 lastPosition1;
     Vector3 lastPosition2;
+
+    [SerializeField]
+    private bool fragile = false;
+
+    [SerializeField] private GameObject brokenEffect;
+
     public float speed;
     private IEnumerator coroutine;
 
@@ -96,12 +103,12 @@ public class Item_Movement_Box_Body : MonoBehaviour
         // land if it wasn't thrown
         else
         {
-            // turn collision back on in 0.1 second
+            // turn collision back on immediately
             coroutine = Land(false, 0f);
             StartCoroutine(coroutine);
         }
 
-        // prevent the object from being clickable
+        // prevent the object from being clickable until it lands
         isFlying = true;
 
     }
@@ -127,6 +134,39 @@ public class Item_Movement_Box_Body : MonoBehaviour
         isFlying = false;
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         boxCollider2DComponent.enabled = true;
+
+        if (waitTime > 0f)
+            BreakCheck();
+    }
+
+    private void BreakCheck()
+    {
+        if (fragile)
+        {
+            //create break particle effect
+            if (brokenEffect != null)
+            {
+                var breakEffect = Instantiate(brokenEffect, transform.position, Quaternion.identity);
+                breakEffect.GetComponent<Rigidbody2D>().velocity = rigidbody2DComponent.velocity;
+                Destroy(breakEffect, 0.3f);
+            }
+
+            //destroy object
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (fragile == false)
+            return;
+        collision.gameObject.TryGetComponent<Rigidbody2D>(out var colliderRighdbody2D);
+        Vector2 collisionObjectVelocity = colliderRighdbody2D.velocity - rigidbody2DComponent.velocity;
+        Debug.Log(collisionObjectVelocity);
+        if (collisionObjectVelocity.sqrMagnitude > 2f)
+        {
+            BreakCheck();
+        }
     }
 }
 
