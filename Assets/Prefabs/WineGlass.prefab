@@ -146,5 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325899fe0cd2a874090b4e1745f6d9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pointValue: 4
+  fragile: 1
+  brokenEffect: {fileID: 6018614160957489305, guid: 9da9c0666a35ced43bd562517385993e, type: 3}
   speed: 75
   isFlying: 0

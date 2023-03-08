@@ -10,6 +10,8 @@ public class Item_Movement_Circle_Body : MonoBehaviour
     Vector3 lastPosition0;
     Vector3 lastPosition1;
     Vector3 lastPosition2;
+
+    public int pointValue;
     
     [SerializeField]
     private bool fragile = false;
