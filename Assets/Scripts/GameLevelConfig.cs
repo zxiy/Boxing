@@ -11,6 +11,7 @@ public class GameLevelConfig : MonoBehaviour
         public string name;
         public GameObject prefab;
         public int value;
+        public float generateTime;
     }
     
     [Serializable]
