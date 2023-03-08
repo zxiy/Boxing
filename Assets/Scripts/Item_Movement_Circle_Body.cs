@@ -10,8 +10,6 @@ public class Item_Movement_Circle_Body : MonoBehaviour
     Vector3 lastPosition0;
     Vector3 lastPosition1;
     Vector3 lastPosition2;
-<<<<<<< HEAD
-=======
     
     [SerializeField]
     private bool fragile = false;
@@ -20,7 +18,6 @@ public class Item_Movement_Circle_Body : MonoBehaviour
     
     public float initialX; //for testing purposes only
     public float initialY; //for testing purposes only
->>>>>>> 38d9fa752216dd877e5abd84ef93ad8a5cb8ddda
     public float speed;
     private IEnumerator coroutine;
 
