@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer)), 
+[RequireComponent(typeof(SpriteRenderer)),
     RequireComponent(typeof(Rigidbody2D))]
-public class Item_Movement : MonoBehaviour
+public class Item_Movement_Circle_Body : MonoBehaviour
 {
     Vector3 lastPosition0;
     Vector3 lastPosition1;
     Vector3 lastPosition2;
-    public float initialX;
-    public float initialY;
+    public float initialX; //for testing purposes only
+    public float initialY; //for testing purposes only
     public float speed;
+    private IEnumerator coroutine;
 
     public bool isFlying;
 
@@ -30,7 +31,7 @@ public class Item_Movement : MonoBehaviour
         lastPosition2 = lastPosition1;
         lastPosition1 = lastPosition0;
         lastPosition0 = transform.position;
-    
+
     }
 
     private void OnMouseDown()
@@ -70,7 +71,7 @@ public class Item_Movement : MonoBehaviour
         {
             directionTowardLastPosition = transform.position - lastPosition1;
         }
-        else 
+        else
         {
             directionTowardLastPosition = transform.position - lastPosition2;
         }
@@ -78,24 +79,62 @@ public class Item_Movement : MonoBehaviour
         // apply an impulse force to the object
         rigidbody2DComponent.AddForce(directionTowardLastPosition * speed, ForceMode2D.Impulse);
 
-        // turn collisoin back on in 0.3 second
-        Invoke("Land", 0.3f);
+        // apply a throw effect if it was thrown
+        if (rigidbody2DComponent.velocity.magnitude >= 3f)
+        {
+            // grow the object a little 
+            transform.localScale = new Vector3(transform.localScale.x + 1f, transform.localScale.y + 1f, transform.localScale.z);
 
-        // prevent the object from being clickable
+            // grow the object again later
+            Invoke("Grow", 0.1f);
+
+            // shrink the object after that
+            Invoke("Shrink", 0.2f);
+
+            // turn collision back on in 0.3 second and return it to normal size
+            coroutine = Land(true, 0.3f);
+            StartCoroutine(coroutine);
+        }
+        // land if it wasn't thrown
+        else
+        {
+            // turn collision back on in 0.1 second
+            coroutine = Land(false, 0.1f);
+            StartCoroutine(coroutine);
+        }
+
+        // prevent the object from being clickable until it lands
         isFlying = true;
 
     }
 
-    [ContextMenu("Stop flying")]
-    private void StopFly()
+    [ContextMenu("Return")]
+    private void Return() //for testing purposes only
     {
         isFlying = false;
         transform.position = new Vector3(initialX, initialY, 0);
         rigidbody2DComponent.velocity = Vector3.zero;
     }
 
-    private void Land()
+    private void Grow()
     {
+        transform.localScale = new Vector3(transform.localScale.x + 1f, transform.localScale.y + 1f, transform.localScale.z);
+    }
+
+    private void Shrink()
+    {
+        transform.localScale = new Vector3(transform.localScale.x - 1f, transform.localScale.y - 1f, transform.localScale.z);
+    }
+
+    private IEnumerator Land(bool thrown, float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+
+        if (thrown == true)
+        {
+            transform.localScale = new Vector3(transform.localScale.x - 1f, transform.localScale.y - 1f, transform.localScale.z);
+        }
+        isFlying = false;
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
         circleCollider2DComponent.enabled = true;
     }
