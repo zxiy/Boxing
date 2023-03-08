@@ -9,8 +9,6 @@ public class Item_Movement_Circle_Body : MonoBehaviour
     Vector3 lastPosition0;
     Vector3 lastPosition1;
     Vector3 lastPosition2;
-    public float initialX; //for testing purposes only
-    public float initialY; //for testing purposes only
     public float speed;
     private IEnumerator coroutine;
 
@@ -98,7 +96,7 @@ public class Item_Movement_Circle_Body : MonoBehaviour
         // land if it wasn't thrown
         else
         {
-            // turn collision back on in 0.1 second
+            // turn collision back on immediately
             coroutine = Land(false, 0f);
             StartCoroutine(coroutine);
         }

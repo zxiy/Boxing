@@ -9,8 +9,6 @@ public class Item_Movement_Box_Body : MonoBehaviour
     Vector3 lastPosition0;
     Vector3 lastPosition1;
     Vector3 lastPosition2;
-    public float initialX; //for testing purposes only
-    public float initialY; //for testing purposes only
     public float speed;
     private IEnumerator coroutine;
 

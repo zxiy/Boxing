@@ -95,7 +95,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5933278439158172857}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -146,7 +146,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325899fe0cd2a874090b4e1745f6d9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialX: 0
-  initialY: -3
   speed: 75
   isFlying: 0
