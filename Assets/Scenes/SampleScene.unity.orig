@@ -2084,9 +2084,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 1672549242441867482, guid: d7daebc95014ae6469219094b7a65d0e, type: 3}
       propertyPath: m_BodyType
       value: 0
+      objectReference: {fileID: 0}
+=======
     - target: {fileID: 1672549242441867485, guid: d7daebc95014ae6469219094b7a65d0e, type: 3}
       propertyPath: fragile
       value: 1
@@ -2095,6 +2098,7 @@ PrefabInstance:
       propertyPath: brokenEffect
       value: 
       objectReference: {fileID: 6018614160957489305, guid: 9da9c0666a35ced43bd562517385993e, type: 3}
+>>>>>>> 38d9fa752216dd877e5abd84ef93ad8a5cb8ddda
     - target: {fileID: 1672549242441867487, guid: d7daebc95014ae6469219094b7a65d0e, type: 3}
       propertyPath: m_Name
       value: Book
