@@ -170,5 +170,13 @@ public class Item_Movement_Box_Body : MonoBehaviour
             BreakCheck();
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "Deletor")
+        {
+            Destroy(gameObject);
+        }
+    }
 }
 
