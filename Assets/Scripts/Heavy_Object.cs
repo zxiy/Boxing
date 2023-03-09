@@ -14,9 +14,13 @@ public class Heavy_Object : MonoBehaviour
         {
             isFragile = collision.gameObject.GetComponent<Item_Movement_Box_Body>().fragile;
         }
-        else
+        else if (collision.gameObject.GetComponent<Item_Movement_Circle_Body>() != null)
         {
             isFragile = collision.gameObject.GetComponent<Item_Movement_Circle_Body>().fragile;
+        }
+        else
+        {
+            isFragile = false;
         }
         if (isFragile == true)
         {

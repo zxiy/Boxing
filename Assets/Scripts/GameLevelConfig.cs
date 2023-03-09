@@ -31,21 +31,24 @@ public class GameLevelConfig : MonoBehaviour
 
     int itemToInstantiate;
 
-    private GameLevel currentLevel;
+    [HideInInspector]public int currentLevelIndex;
+    [HideInInspector]public GameLevel currentLevel;
+    [HideInInspector]public float passedTime;
 
     private int generatedItemIndex;
-    private void Start()
+    private void Awake()
     {
         timeSinceLastSpawn = 0;
-        currentLevel = gameLevels[0];
+        currentLevelIndex = 0;
+        passedTime = 0;
+        currentLevel = gameLevels[currentLevelIndex];
         itemToInstantiate = UnityEngine.Random.Range(0, currentLevel.items.Length);
         print("Item to spawn = " + itemToInstantiate);
     }
     
     private void Update()
     {
-        float timePassed = Time.fixedTime - timeSinceLastSpawn;
-        print("time passed = " + timePassed);
+        passedTime += Time.deltaTime;
         // check if we need to generate next item
         if (Time.fixedTime - timeSinceLastSpawn >= currentLevel.items[itemToInstantiate].generateTime)
         {
@@ -58,5 +61,15 @@ public class GameLevelConfig : MonoBehaviour
             timeSinceLastSpawn = Time.fixedTime;
             print("Time of spawn = " + timeSinceLastSpawn);
         }
+    }
+    
+    public bool NextLevel()
+    {
+        if (currentLevelIndex >= gameLevels.Length - 1)
+            return false;
+        currentLevelIndex++;
+        currentLevel = gameLevels[currentLevelIndex];
+        passedTime = 0;
+        return true;
     }
 }
