@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointValue: 3
-  fragile: 1
+  fragile: 0
   brokenEffect: {fileID: 6018614160957489305, guid: 9da9c0666a35ced43bd562517385993e, type: 3}
   speed: 35
   isFlying: 0
