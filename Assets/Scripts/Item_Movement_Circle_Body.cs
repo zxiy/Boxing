@@ -57,7 +57,7 @@ public class Item_Movement_Circle_Body : MonoBehaviour
         Vector2 mousePositionInWorldSpace = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         // if the key is clicked, have key follow mouse
-        transform.position = new Vector3(Mathf.Clamp(mousePositionInWorldSpace.x, -7f, 7f), Mathf.Clamp(mousePositionInWorldSpace.y, -4.5f, 2.4f), -0.1f);
+        transform.position = new Vector3(mousePositionInWorldSpace.x, mousePositionInWorldSpace.y, -0.1f);
     }
 
     void OnMouseUp()

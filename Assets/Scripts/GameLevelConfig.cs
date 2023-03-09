@@ -27,31 +27,36 @@ public class GameLevelConfig : MonoBehaviour
     
     public GameLevel[] gameLevels;
 
-    private float passedTime;
-    
+    private float timeSinceLastSpawn;
+
+    int itemToInstantiate;
+
     private GameLevel currentLevel;
 
     private int generatedItemIndex;
     private void Start()
     {
-        passedTime = 0;
+        timeSinceLastSpawn = 0;
         currentLevel = gameLevels[0];
-        generatedItemIndex = 0;
-        // sort items by generateTime
-        Array.Sort(currentLevel.items, (a, b) => a.generateTime.CompareTo(b.generateTime));
+        itemToInstantiate = UnityEngine.Random.Range(0, currentLevel.items.Length);
+        print("Item to spawn = " + itemToInstantiate);
     }
     
     private void Update()
     {
-        passedTime += Time.deltaTime;
+        float timePassed = Time.fixedTime - timeSinceLastSpawn;
+        print("time passed = " + timePassed);
         // check if we need to generate next item
-        if (generatedItemIndex < currentLevel.items.Length && passedTime >= currentLevel.items[generatedItemIndex].generateTime)
+        if (Time.fixedTime - timeSinceLastSpawn >= currentLevel.items[itemToInstantiate].generateTime)
         {
-            // generate item
-            GameObject item = Instantiate(currentLevel.items[generatedItemIndex].prefab, 
+            // generate selected item
+            GameObject item = Instantiate(currentLevel.items[itemToInstantiate].prefab, 
                 itemGeneratePosition.transform.position, Quaternion.identity);
-            // increase generatedItemIndex
-            generatedItemIndex++;
+            // select new item to spawn
+            itemToInstantiate = UnityEngine.Random.Range(0, currentLevel.items.Length);
+            // set the time the item spawned
+            timeSinceLastSpawn = Time.fixedTime;
+            print("Time of spawn = " + timeSinceLastSpawn);
         }
     }
 }
