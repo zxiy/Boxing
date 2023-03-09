@@ -2141,68 +2141,60 @@ MonoBehaviour:
       value: 1
       generateTime: 0.5
     - name: 
-      prefab: {fileID: 5933278439158172857, guid: 1e9c8f62533fd7b42b25c1189da45bf1, type: 3}
-      value: 3
+      prefab: {fileID: 5933278439158172857, guid: c038743740002494095c9608403a2c15, type: 3}
+      value: 2
       generateTime: 3
     - name: 
       prefab: {fileID: 5933278439158172857, guid: 27ad394ee6ddc3f4aa1b8080f2dccc8c, type: 3}
       value: 4
-      generateTime: 1.5
-    - name: 
-      prefab: {fileID: 5933278439158172857, guid: ddcf65811ac0b3e4b9b7ff89059d08ab, type: 3}
-      value: 4
-      generateTime: 3
+      generateTime: 2
     - name: 
       prefab: {fileID: 5933278439158172857, guid: c99aa802c4fccc44e90176f8ce4c8a36, type: 3}
       value: 1
       generateTime: 1
+    - name: 
+      prefab: {fileID: 5933278439158172857, guid: 51ad3ab8f22169b45b2db34464d30096, type: 3}
+      value: 2
+      generateTime: 2
   - name: Level2
     timeLimit: 50
     targetScore: 30
     items:
     - name: 
-      prefab: {fileID: 5933278439158172857, guid: e64c1897af21b35478dd8f5aa6df24af, type: 3}
-      value: 1
-      generateTime: 0.5
-    - name: 
-      prefab: {fileID: 5933278439158172857, guid: 1e9c8f62533fd7b42b25c1189da45bf1, type: 3}
-      value: 3
-      generateTime: 3
+      prefab: {fileID: 5933278439158172857, guid: ddcf65811ac0b3e4b9b7ff89059d08ab, type: 3}
+      value: 4
+      generateTime: 2
     - name: 
       prefab: {fileID: 5933278439158172857, guid: 27ad394ee6ddc3f4aa1b8080f2dccc8c, type: 3}
       value: 4
+      generateTime: 1
+    - name: 
+      prefab: {fileID: 5933278439158172857, guid: 1e9c8f62533fd7b42b25c1189da45bf1, type: 3}
+      value: 3
       generateTime: 1.5
     - name: 
-      prefab: {fileID: 5933278439158172857, guid: ddcf65811ac0b3e4b9b7ff89059d08ab, type: 3}
-      value: 4
-      generateTime: 3
-    - name: 
-      prefab: {fileID: 5933278439158172857, guid: c99aa802c4fccc44e90176f8ce4c8a36, type: 3}
+      prefab: {fileID: 1672549242441867487, guid: d7daebc95014ae6469219094b7a65d0e, type: 3}
       value: 1
-      generateTime: 1
+      generateTime: 0.5
   - name: Level3
     timeLimit: 30
     targetScore: 30
     items:
     - name: 
-      prefab: {fileID: 5933278439158172857, guid: e64c1897af21b35478dd8f5aa6df24af, type: 3}
-      value: 1
+      prefab: {fileID: 5933278439158172857, guid: 16a0aff373d1f134985d15fdd552e3d4, type: 3}
+      value: 3
+      generateTime: 1
+    - name: 
+      prefab: {fileID: 1672549242441867487, guid: 9d14633153cbd2740bd256ec8503dccc, type: 3}
+      value: 2
       generateTime: 0.5
     - name: 
-      prefab: {fileID: 5933278439158172857, guid: 1e9c8f62533fd7b42b25c1189da45bf1, type: 3}
-      value: 3
-      generateTime: 3
-    - name: 
-      prefab: {fileID: 5933278439158172857, guid: 27ad394ee6ddc3f4aa1b8080f2dccc8c, type: 3}
+      prefab: {fileID: 5933278439158172857, guid: 7a2118bc62d8ba34e935d01cdc3bcb84, type: 3}
       value: 4
-      generateTime: 1.5
+      generateTime: 1
     - name: 
-      prefab: {fileID: 5933278439158172857, guid: ddcf65811ac0b3e4b9b7ff89059d08ab, type: 3}
+      prefab: {fileID: 5933278439158172857, guid: d0a5cee96ac881d4b9e893decd8993dd, type: 3}
       value: 4
-      generateTime: 3
-    - name: 
-      prefab: {fileID: 5933278439158172857, guid: c99aa802c4fccc44e90176f8ce4c8a36, type: 3}
-      value: 1
       generateTime: 1
   currentLevelIndex: 0
   currentLevel:

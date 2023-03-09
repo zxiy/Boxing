@@ -43,7 +43,6 @@ public class GameLevelConfig : MonoBehaviour
         passedTime = 0;
         currentLevel = gameLevels[currentLevelIndex];
         itemToInstantiate = UnityEngine.Random.Range(0, currentLevel.items.Length);
-        print("Item to spawn = " + itemToInstantiate);
     }
     
     private void Update()
@@ -59,7 +58,6 @@ public class GameLevelConfig : MonoBehaviour
             itemToInstantiate = UnityEngine.Random.Range(0, currentLevel.items.Length);
             // set the time the item spawned
             timeSinceLastSpawn = Time.fixedTime;
-            print("Time of spawn = " + timeSinceLastSpawn);
         }
     }
     
@@ -70,6 +68,7 @@ public class GameLevelConfig : MonoBehaviour
         currentLevelIndex++;
         currentLevel = gameLevels[currentLevelIndex];
         passedTime = 0;
+        itemToInstantiate = UnityEngine.Random.Range(0, currentLevel.items.Length);
         return true;
     }
 }

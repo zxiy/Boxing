@@ -124,4 +124,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce22f95c9bcdfb34fbb88d25a1d25996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conveyorSpeed: 0
+  conveyorSpeed: 0.01

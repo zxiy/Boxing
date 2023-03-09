@@ -14,6 +14,6 @@ public class ConveyorBelt : MonoBehaviour
 
     public void SpeedUp()
     {
-        conveyorSpeed += 0.03f;
+        conveyorSpeed += 0.02f;
     }
 }
