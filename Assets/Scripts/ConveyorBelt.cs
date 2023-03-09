@@ -11,4 +11,9 @@ public class ConveyorBelt : MonoBehaviour
     {
             other.transform.position = new Vector3(other.transform.position.x + conveyorSpeed, other.transform.position.y, other.transform.position.z);
     }
+
+    public void SpeedUp()
+    {
+        conveyorSpeed += 0.03f;
+    }
 }
