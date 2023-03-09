@@ -14,7 +14,7 @@ public class Item_Movement_Box_Body : MonoBehaviour
     public int pointValue;
 
     [SerializeField]
-    private bool fragile = false;
+    public bool fragile = false;
 
     [SerializeField] private GameObject brokenEffect;
 
@@ -141,7 +141,7 @@ public class Item_Movement_Box_Body : MonoBehaviour
             BreakCheck();
     }
 
-    private void BreakCheck()
+    public void BreakCheck()
     {
         if (fragile)
         {
