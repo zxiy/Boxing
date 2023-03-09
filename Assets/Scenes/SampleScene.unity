@@ -1529,6 +1529,10 @@ MonoBehaviour:
       prefab: {fileID: 5933278439158172857, guid: ddcf65811ac0b3e4b9b7ff89059d08ab, type: 3}
       value: 0
       generateTime: 10
+    - name: 
+      prefab: {fileID: 5933278439158172857, guid: c99aa802c4fccc44e90176f8ce4c8a36, type: 3}
+      value: 0
+      generateTime: 15
 --- !u!4 &718149036
 Transform:
   m_ObjectHideFlags: 0
