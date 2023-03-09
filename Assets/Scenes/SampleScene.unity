@@ -1507,15 +1507,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ead099738c45a458fa22de00ec4e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemGeneratePosition: {fileID: 1807031613}
   gameLevels:
-  - name: 
-    timeLimit: 0
-    targetScore: 0
+  - name: Leve1
+    timeLimit: 60
+    targetScore: 50
     items:
     - name: 
-      prefab: {fileID: 1672549242441867487, guid: d7daebc95014ae6469219094b7a65d0e, type: 3}
+      prefab: {fileID: 5933278439158172857, guid: e64c1897af21b35478dd8f5aa6df24af, type: 3}
       value: 0
-      generateTime: 0
+      generateTime: 1
+    - name: 
+      prefab: {fileID: 5933278439158172857, guid: 1e9c8f62533fd7b42b25c1189da45bf1, type: 3}
+      value: 0
+      generateTime: 4
+    - name: 
+      prefab: {fileID: 5933278439158172857, guid: 27ad394ee6ddc3f4aa1b8080f2dccc8c, type: 3}
+      value: 0
+      generateTime: 8
+    - name: 
+      prefab: {fileID: 5933278439158172857, guid: ddcf65811ac0b3e4b9b7ff89059d08ab, type: 3}
+      value: 0
+      generateTime: 10
 --- !u!4 &718149036
 Transform:
   m_ObjectHideFlags: 0

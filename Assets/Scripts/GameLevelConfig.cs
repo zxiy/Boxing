@@ -23,5 +23,35 @@ public class GameLevelConfig : MonoBehaviour
         public ItemConfig[] items;
     }
     
+    [SerializeField] private GameObject itemGeneratePosition;
+    
     public GameLevel[] gameLevels;
+
+    private float passedTime;
+    
+    private GameLevel currentLevel;
+
+    private int generatedItemIndex;
+    private void Start()
+    {
+        passedTime = 0;
+        currentLevel = gameLevels[0];
+        generatedItemIndex = 0;
+        // sort items by generateTime
+        Array.Sort(currentLevel.items, (a, b) => a.generateTime.CompareTo(b.generateTime));
+    }
+    
+    private void Update()
+    {
+        passedTime += Time.deltaTime;
+        // check if we need to generate next item
+        if (generatedItemIndex < currentLevel.items.Length && passedTime >= currentLevel.items[generatedItemIndex].generateTime)
+        {
+            // generate item
+            GameObject item = Instantiate(currentLevel.items[generatedItemIndex].prefab, 
+                itemGeneratePosition.transform.position, Quaternion.identity);
+            // increase generatedItemIndex
+            generatedItemIndex++;
+        }
+    }
 }
