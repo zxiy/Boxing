@@ -13,10 +13,7 @@ public class GUIController : MonoBehaviour
     [SerializeField]TMP_Text targetScoreText;
     [SerializeField]TMP_Text timeText;
     [SerializeField]Button shipButton;
-
-    public GameObject[] belts;
-
-
+    
     [SerializeField]private GameLevelConfig gameLevelConfig;
     private int score;
     [HideInInspector] public UnityEvent<GameObject, int> onScoreChanged = new UnityEvent<GameObject, int>();
@@ -33,9 +30,6 @@ public class GUIController : MonoBehaviour
         targetScoreText.text = gameLevelConfig.currentLevel.targetScore.ToString();
         score = 0;
         scoreText.text = score.ToString();
-
-        foreach (GameObject belt in belts)
-            belt.SendMessage("SpeedUp");
     }
     
     private void Update()
@@ -46,11 +40,6 @@ public class GUIController : MonoBehaviour
         if (score >= gameLevelConfig.currentLevel.targetScore)
         {
             shipButton.gameObject.SetActive(true);
-        } 
-        else    
-        {
-            shipButton.gameObject.SetActive(false);
-
         }
     }
     
