@@ -43,6 +43,19 @@ public class Item_Movement_Circle_Body : MonoBehaviour
 
     private void OnMouseDown()
     {
+        GameObject Audio;
+        if (fragile)
+        {
+            Audio = GameObject.Find("PickupGlass");
+        }
+        else
+        {
+            Audio = GameObject.Find("PickupNormal");
+        }
+
+        // play the appropriate sound
+        Audio.GetComponent<AudioSource>()?.Play();
+
         // if flying, return early -- do nothing
         if (isFlying) return;
         // turn off colision
@@ -146,7 +159,9 @@ public class Item_Movement_Circle_Body : MonoBehaviour
         if (fragile)
         {
             // play break sound
-            GetComponent<AudioSource>()?.Play();
+            GameObject Audio = GameObject.Find("BreakSound");
+            Audio.GetComponent<AudioSource>()?.Play();
+
             //create break particle effect
             if (brokenEffect != null)
             {

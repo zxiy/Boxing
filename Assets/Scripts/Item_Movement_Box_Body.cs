@@ -43,8 +43,8 @@ public class Item_Movement_Box_Body : MonoBehaviour
 
     private void OnMouseDown()
     {
+        // find the correct audio player
         GameObject Audio;
-        // get apropriate pickup sound
         if (fragile)
         {
             Audio = GameObject.Find("PickupGlass");
@@ -160,7 +160,9 @@ public class Item_Movement_Box_Body : MonoBehaviour
         if (fragile)
         {
             // play break sound
-            GetComponent<AudioSource>()?.Play();
+            GameObject Audio = GameObject.Find("BreakSound");
+            Audio.GetComponent<AudioSource>()?.Play();
+
             //create break particle effect
             if (brokenEffect != null)
             {

@@ -67,8 +67,9 @@ public class GUIController : MonoBehaviour
     {
         if (_score > 0)
         {
-            // play place into box sound
-            GetComponent<AudioSource>()?.Play();
+            // play placing sound
+            GameObject Audio = GameObject.Find("PlaceInBox");
+            Audio.GetComponent<AudioSource>()?.Play();
 
             score += _score;
             scoreText.text = score.ToString();
@@ -91,8 +92,9 @@ public class GUIController : MonoBehaviour
         //Load next level
         if (gameLevelConfig.NextLevel())
         {
-            // play break sound
-            closeAudio.GetComponent<AudioSource>()?.Play();
+            // play shippipng sound
+            GameObject Audio = GameObject.Find("ClosingSound");
+            Audio.GetComponent<AudioSource>()?.Play();
 
             frzzeTime = true;
             //play close box animation
