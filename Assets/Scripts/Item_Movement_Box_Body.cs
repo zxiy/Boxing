@@ -164,8 +164,8 @@ public class Item_Movement_Box_Body : MonoBehaviour
     {
         if (fragile == false)
             return;
-        collision.gameObject.TryGetComponent<Rigidbody2D>(out var colliderRighdbody2D);
-        Vector2 collisionObjectVelocity = colliderRighdbody2D.velocity - rigidbody2DComponent.velocity;
+        Vector2 collisionObjectVelocity = collision.relativeVelocity;;
+ 
         Debug.Log(collisionObjectVelocity);
         if (collisionObjectVelocity.sqrMagnitude > 2f)
         {
