@@ -14,6 +14,7 @@ public class GUIController : MonoBehaviour
     [SerializeField]TMP_Text timeText;
     [SerializeField]Button shipButton;
     
+    public GameObject[] belt;
     [SerializeField]private GameLevelConfig gameLevelConfig;
     private int score;
     [HideInInspector]public UnityEvent<GameObject, int> onScoreChanged = new UnityEvent<GameObject, int>();
@@ -32,6 +33,8 @@ public class GUIController : MonoBehaviour
 
     private void initialize()
     {
+        foreach (GameObject Belts in belt)
+            Belts.GetComponent<ConveyorBelt>().conveyorSpeed += 0.02f;
         targetScoreText.text = gameLevelConfig.currentLevel.targetScore.ToString();
         score = 0;
         scoreText.text = score.ToString();
