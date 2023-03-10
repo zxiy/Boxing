@@ -153,7 +153,9 @@ public class Item_Movement_Circle_Body : MonoBehaviour
                 Destroy(breakEffect, 0.3f);
             }
 
-            //destroy object
+            //destroy object and remove a second from the timer
+            GameObject gameLevel = GameObject.Find("GameLevelConfig");
+            gameLevel.GetComponent<GameLevelConfig>().passedTime += 1;
             Destroy(gameObject);
         }
     }
@@ -170,11 +172,14 @@ public class Item_Movement_Circle_Body : MonoBehaviour
             BreakCheck();
         }
     }
-    private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.name == "Deletor")
+        if (collision.gameObject.name == "Deletor")
         {
-            Destroy(this);
+            GameObject gameLevel = GameObject.Find("GameLevelConfig");
+            gameLevel.GetComponent<GameLevelConfig>().passedTime += 1;
+            Destroy(gameObject);
         }
     }
 }
