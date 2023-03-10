@@ -93,6 +93,10 @@ public class GUIController : MonoBehaviour
             {
                 animator.SetFloat("PlayTime", shipAnimationTime);
                 animator.SetTrigger("Close");
+                foreach (var flapSpriteRenderer in animator.gameObject.GetComponentsInChildren<SpriteRenderer>())
+                {
+                    flapSpriteRenderer.sortingLayerName = "Flaps";
+                }
             }
             foreach (var item in itemsInBox)
             {
@@ -120,6 +124,13 @@ public class GUIController : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         initialize();
+        foreach (var animator in flapAnimators)
+        {
+            foreach (var flapSpriteRenderer in animator.gameObject.GetComponentsInChildren<SpriteRenderer>())
+            {
+                flapSpriteRenderer.sortingLayerName = "Default";
+            }
+        }
     }
 
 }
