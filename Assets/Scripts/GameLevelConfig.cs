@@ -43,7 +43,6 @@ public class GameLevelConfig : MonoBehaviour
         passedTime = 0;
         currentLevel = gameLevels[currentLevelIndex];
         itemToInstantiate = UnityEngine.Random.Range(0, currentLevel.items.Length);
-        print("Item to spawn = " + itemToInstantiate);
     }
     
     private void Update()
@@ -69,6 +68,7 @@ public class GameLevelConfig : MonoBehaviour
             return false;
         currentLevelIndex++;
         currentLevel = gameLevels[currentLevelIndex];
+        itemToInstantiate = UnityEngine.Random.Range(0, currentLevel.items.Length);
         passedTime = 0;
         return true;
     }

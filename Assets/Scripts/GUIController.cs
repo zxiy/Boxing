@@ -13,7 +13,8 @@ public class GUIController : MonoBehaviour
     [SerializeField]TMP_Text targetScoreText;
     [SerializeField]TMP_Text timeText;
     [SerializeField]Button shipButton;
-    
+
+    public GameObject closeAudio;
     public GameObject[] belt;
     [SerializeField]private GameLevelConfig gameLevelConfig;
     private int score;
@@ -66,6 +67,9 @@ public class GUIController : MonoBehaviour
     {
         if (_score > 0)
         {
+            // play place into box sound
+            GetComponent<AudioSource>()?.Play();
+
             score += _score;
             scoreText.text = score.ToString();
             itemsInBox.Add(gameObject);
@@ -87,6 +91,9 @@ public class GUIController : MonoBehaviour
         //Load next level
         if (gameLevelConfig.NextLevel())
         {
+            // play break sound
+            closeAudio.GetComponent<AudioSource>()?.Play();
+
             frzzeTime = true;
             //play close box animation
             foreach (var animator in flapAnimators)

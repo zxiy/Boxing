@@ -145,6 +145,8 @@ public class Item_Movement_Circle_Body : MonoBehaviour
     {
         if (fragile)
         {
+            // play break sound
+            GetComponent<AudioSource>()?.Play();
             //create break particle effect
             if (brokenEffect != null)
             {
